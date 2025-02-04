@@ -47,6 +47,51 @@ console.log(joinStrings(["asdf", "qweryy", "mklpo"]));
 console.log(greet("me"));
 console.log(greet());
 
+const m3: (a: number) => number = multiplier(3);
+console.log(m3(4));
+
+printValue(null);
+printValue(44);
+printValue(undefined);
+printValue("foreifjo");
+
+const b: Book = {author: "kurt w", title: "mossig", year: 1968};
+printBook(b);
+
+trafficlight();
+
+oddeven();
+
+function oddeven(): void {
+    for (let i: number = 1; i < 21; i++) {
+        if (i % 2 === 0)
+            console.log("even");
+        else
+        console.log("odd");
+    }
+}
+function trafficlight(): void {
+    for (let i: number = 0; i < 10; i++) {
+        if (i < 5)
+            console.log("grönt");
+        else if (i < 7)
+            console.log("gult");
+        else
+            console.log("rött");
+    }
+}
+
+function printBook(b: IBook): void {
+    console.log(b);
+}
+
+function printValue(a: any): void {
+    console.log(a === null || a === undefined ? "No value" : a);
+}
+
+function multiplier(n: number): (a: number) => number {
+    return (a) => n*a;
+}
 
 function greet(name: string = "Guest"): string {
     return "Hello, " + name;
@@ -92,3 +137,14 @@ type Person = {
     age: number;
 };
 
+interface IBook {
+    title: string,
+    author: string,
+    year: number
+}
+
+type Book = {
+    title: string;
+    author: string;
+    year: number;
+}
